@@ -10,6 +10,54 @@ $color-grey-light-2: #aaa;
 $color-grey-dark-1: #54483A;
 $color-grey-dark-2: #6D5D4B;
 
+$color-white: #fff;
+
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+*,
+*::before,
+*::after {
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5% => 1rem = 10px
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+}
+
+.container {
+    display:grid;
+
+
+    //max-content intenta utilizar todo el espacio disponible para q no hallan saltos de linea en un texto
+    //min-content utiliza el espacio de la palabra mas larga y evitar cortarla
+
+
+    //80vh => para el header
+   // grid-template-rows: 80vh repeat(5, min-content); //Importante recordar 80vh  estoy ajustando el ALTO
+
+    grid-template-rows: 80vh min-content 40vw repeat(3,min-content);
+
+   //se crea un sistema de grillas donde
+   //1 => sidebar 8rem de hancho
+   //2 y 12 se ajustan al ancho de la pantalla
+   //3rd hasta la 11 se ajustan al contenido teniendo un maximo de 14rem (quizo dar un espacio de 1140px/8 = 142 aproximo a 140)
+   // grid-template-columns: 8rem 1fr repeat(8, minmax(min-content,14rem)) 1fr ;
+   //agrego nombres a las grillas
+   grid-template-columns: [sidebar]8rem
+                          [espaciador] minmax(6rem,1fr) //minimo  6 rem de lo contrario 1 frm
+                          repeat(8, [col-container] minmax(min-content,14rem))
+                          [espaciador2-start] minmax(6rem,1fr)  [espaciador2-end]; //a esta columna le dí 2 nombres
+
+    gap: 5px;
+}
