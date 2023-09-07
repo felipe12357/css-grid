@@ -2,4 +2,57 @@
  //  grid-area:1/2 / 1/12; // (y1, x1)
     grid-row: 1/2;
     grid-column:espaciador / col-container 6;
+  //  background-color: $color-grey-dark-1;
+    background-image: linear-gradient(
+                            rgba($color-secondary,.83),
+                            rgba($color-secondary,.83)), url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding:8rem;
+    padding-top:4rem;
+
+    display:grid;
+    grid-template-rows: 1fr min-content 6rem 1fr;
+    row-gap: 1.5rem;
+    justify-content: center;
+
+    &__logo {
+       height:3rem;
+       justify-self : center;
+    }
+
+    &__seenon-text {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        font-size: 1.6rem;
+        color:$color-grey-light-2;
+        column-gap: 3rem;
+
+        &::before,
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+            align-self: center;
+        }
+    }
+
+    &__button {
+        align-self: start;
+        justify-self: start;
+    }
+
+    &__seenon-logos {
+
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        column-gap: 3rem;
+        justify-items: center;
+
+        img {
+            height: 2.5rem;
+            filter:brightness(70%)
+        }
+    }
 }

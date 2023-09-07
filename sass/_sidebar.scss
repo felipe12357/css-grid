@@ -1,4 +1,29 @@
 .sidebar {
     grid-area:1/1 / 7/2; // (y1, x1)
     background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-btn {
+    border:none;
+    border-radius: 0;
+
+
+    background-color: $color-white;
+    height:2px;
+    width:4.5rem;
+    margin-top:4rem;
+
+    &::before,
+    &::after{
+        background-color: $color-white;
+        height: 2px;
+        width:4.5rem;
+        content:"";
+        display: block;
+    }
+
+    &::before { transform: translateY(-1.5rem);}
+    &::after { transform:translateY(1.5rem)}
 }
